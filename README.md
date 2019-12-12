@@ -11,9 +11,9 @@ docker run --name queue-move -d \
     -e OriginQueueConnectionString="amqp://user:password@localhost:5672/current-vh" \
     -e OriginQueueName=my-demo-queue \
     -e DestinationQueueConnectionString="amqp://user:password@localhost:5672/other-vh" \
-	-e DestinationExchangeName=my-other-exchange \
+    -e DestinationExchangeName=my-other-exchange \
     -e DestinationQueueName=my-other-queue \
-	-e StopWhenEmpty=false \
+    -e StopWhenEmpty=false \
     thiagobarradas/queue-move:latest
 ```
 
