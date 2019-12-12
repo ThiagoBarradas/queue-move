@@ -20,12 +20,12 @@ namespace QueueMove
             this.OriginQueueManager = new QueueManager("Origin", 
                 configuration.OriginQueueConnectionString, 
                 configuration.OriginQueueName, 
-                null);
+                null ?? "");
 
             this.DestinationQueueManager = new QueueManager("Destination", 
                 configuration.DestinationQueueConnectionString, 
                 configuration.DestinationQueueName, 
-                configuration.DestinationExchangeName);
+                configuration.DestinationExchangeName ?? "");
 
             this.OriginQueueManager.TryConnect();
             this.DestinationQueueManager.TryConnect();

@@ -10,7 +10,7 @@ namespace QueueMove
         {
             try
             {
-                var config = QueueMoveConfiguration.Create();
+                var config = QueueMoveConfiguration.CreateForDebug();
                 DisplayHeader(config);
 
                 var processor = new QueueMessageProcessor(config);

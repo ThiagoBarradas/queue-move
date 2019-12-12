@@ -41,7 +41,7 @@ namespace QueueMove.Models
                 OriginQueueConnectionString = "amqp://guest:guest@localhost:5672/vhost-origin",
                 OriginQueueName = "origin-queue",
                 DestinationQueueConnectionString = "amqp://guest:guest@localhost:5672/vhost-dest",
-                DestinationExchangeName = "dest-exchange",
+                DestinationExchangeName = null,//"dest-exchange",
                 DestinationQueueName = "dest-queue",
                 StopWhenEmpty = true
             };
