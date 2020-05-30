@@ -76,8 +76,8 @@ namespace QueueMove.Queue
 
                 connectionFactory.Ssl.CertificateValidationCallback += (sender, certificate, chain, errors) => true;
                 connectionFactory.Ssl.AcceptablePolicyErrors = SslPolicyErrors.RemoteCertificateChainErrors
-                                                     | SslPolicyErrors.RemoteCertificateNameMismatch
-                                                     | SslPolicyErrors.RemoteCertificateNotAvailable;
+                                                             | SslPolicyErrors.RemoteCertificateNameMismatch
+                                                             | SslPolicyErrors.RemoteCertificateNotAvailable;
 
                 this.Channel = this.ChannelFactory.Create(connectionFactory);
                 Logger.LogLineWithLevel("OK", $"TryConnect: Successfully connected! {this.ConnectionName}");
