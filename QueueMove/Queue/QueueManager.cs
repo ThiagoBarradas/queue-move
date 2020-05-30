@@ -1,6 +1,7 @@
 ﻿using RabbitMQ.Client;
 using RabbitMQ.Client.Framing;
 using System;
+using System.Net.Security;
 using System.Text;
 
 namespace QueueMove.Queue
@@ -72,6 +73,11 @@ namespace QueueMove.Queue
                     TopologyRecoveryEnabled = true,
                     Uri = new Uri(this.ConnectionString)
                 };
+
+                connectionFactory.Ssl.CertificateValidationCallback += (sender, certificate, chain, errors) => true;
+                connectionFactory.Ssl.AcceptablePolicyErrors = SslPolicyErrors.RemoteCertificateChainErrors
+                                                     | SslPolicyErrors.RemoteCertificateNameMismatch
+                                                     | SslPolicyErrors.RemoteCertificateNotAvailable;
 
                 this.Channel = this.ChannelFactory.Create(connectionFactory);
                 Logger.LogLineWithLevel("OK", $"TryConnect: Successfully connected! {this.ConnectionName}");
